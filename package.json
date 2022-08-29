@@ -1,0 +1,14 @@
+{
+  "name": "mineeksbot",
+  "version": "1.0.0",
+  "description": "A simple discord bot.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
+  },
+  "author": "Mineek",
+  "dependencies": {
+    "discord.js": "^14.3.0"
+  }
+}
