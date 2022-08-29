@@ -22,8 +22,9 @@ client.on('messageCreate', message => {
     if (commandName === 'help') {
         var embed = embedHelper.createEmbed('Help', 'List of all commands');
         commands.commands.forEach(command => {
-            embed.addFields({name: command.name, value: command.description});
+            embed.addFields({name: command.name, value: command.description || 'No description provided.'});
         });
+        embed.setFooter({text: `Prefix: ${config.prefix} || Mineek's Bot `});
         message.channel.send({embeds: [embed]});
         return;
     }

@@ -20,7 +20,14 @@ function executeCommand(command, message, args) {
     const commandPermissions = command.permissions;
     if (commandPermissions == "owner") {
         if (message.author.id != config.ownerId) {
-            message.channel.createMessage({embed: embedHelper.createErrorEmbed("You do not have permission to use this command.")});
+            message.channel.send({embeds: [embedHelper.createErrorEmbed("You do not have permission to use this command.")]});
+            return;
+        }
+    }
+    // check usage
+    if (command.usage) {
+        if (args.length < command.usage.split(' ').length) {
+            message.channel.send({embeds: [embedHelper.createErrorEmbed(`Usage: ${config.prefix}${command.name} ${command.usage}`)]});
             return;
         }
     }
